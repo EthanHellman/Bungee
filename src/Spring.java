@@ -2,5 +2,6 @@
 
 public class Spring {
 	Force[] forces;
+	double mass;
 	
 }
