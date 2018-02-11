@@ -25,7 +25,7 @@ public class Bungee {
 			this.Springs.add(s);
 		}
 		Masses.get(Masses.size()-1).fixed = true;
-		Masses.get(Masses.size()-1).color = Color.BLACK;
+		Masses.get(Masses.size()-1).color = Color.BLACK;//here yurd
 		pFrame.addDrawable(Masses.get(Masses.size()-1));
 
 		
