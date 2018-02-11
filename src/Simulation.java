@@ -40,23 +40,15 @@ public class Simulation extends AbstractSimulation {
 	public void reset() {
 		control.setValue("x", 0);
 		control.setValue("y", 100);
-//		control.setValue("x target", xTarget);
-//		control.setValue("y target", yTarget);
-//		control.setValue("velocity", velocity);
-//		control.setValue("angle", angle);
 		control.setValue("Time Step", .1);
 		control.setValue("Number of Springs", 4);
 		control.setValue("Length of each spring", .5);
 		control.setValue("Mass of Person", 50);
 		control.setValue("K", 50);
 		control.setValue("Mass of each spring", 1);
-		
-
-//		control.setValue("Detailed Plot", detailedPlot);
-//		control.setValue("targetTesting", targetTesting);
-//		ball.time = 0;
+	
 		xyFrame.clearData();
-		this.setDelayTime(100);
+		this.setDelayTime(1);
 
 
 	}
