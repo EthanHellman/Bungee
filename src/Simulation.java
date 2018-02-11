@@ -59,7 +59,7 @@ public class Simulation extends AbstractSimulation {
 	 * 
 	 */
 	public void initialize() {
-
+xyFrame.setPreferredMinMaxY(-50, 150);
 		xyFrame.clearData();
 		 chord = new Bungee(control.getDouble("Number of Springs"), control.getDouble("Length of each spring"), control.getDouble("K"), control.getDouble("Mass of each spring"), control.getDouble("Mass of Person"), control.getDouble("Time Step"), xyFrame, control.getDouble("x"), control.getDouble("y"));
 		
