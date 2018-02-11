@@ -15,15 +15,18 @@ public class Bungee {
 		this.lengthPerSpring = length;
 		Masses = new ArrayList<Particle>();
 		Springs = new ArrayList<Spring>();
-		Masses.add(new Particle(bodyMass, timeStep, x, y));//adds the human
+		Masses.add(new Particle(bodyMass, timeStep, x, y-length*numSprings));//adds the human
 		Masses.get(0).color = Color.BLUE;
 		pFrame.addDrawable(Masses.get(0));
 		for(int i = 0; i < numSprings; i++) {
-			Masses.add(new Particle(springMass, timeStep, x, y-i*length));
+			Masses.add(new Particle(springMass, timeStep, x, y-(numSprings-i-1)*length));
 			pFrame.addDrawable(Masses.get(i));
-			Spring s = new Spring((length/numSprings), K, Masses.get(i),Masses.get(i+1));
+			Spring s = new Spring((length), K, Masses.get(i),Masses.get(i+1));
 			this.Springs.add(s);
 		}
+		Masses.get(Masses.size()-1).fixed = true;
+		
+		
 	}
 	public void updateSprings() {
 		for(int i = 0; i < Springs.size(); i ++) {
