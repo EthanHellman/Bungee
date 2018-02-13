@@ -21,22 +21,22 @@ public class Simulation extends AbstractSimulation {
 
 		cord.update();
 //		aFrame.append(0, time+timeStep*j++, cord.Masses.get(0).Ya );
-		if((cord.Masses.get(0).getY() <= 0)) {
-			if(cord.Masses.get(0).Yv > 0) {
-				System.err.println(cord.k);
-				this.stop();
-			}
-			else 		{
-				i++;
-				System.out.println(cord.Masses.get(0).Yv);
-				cord = new Bungee(numSprings, length/numSprings, k + i * 10, mass/numSprings, massPerson, timeStep, xyFrame, x, y);
-				System.out.println(k + i * 10);
-			}
-		}
-		else if(cord.Masses.get(0).Yv > 0) {
-			System.err.println(cord.k);
-			this.stop();
-		}
+//		if((cord.Masses.get(0).getY() <= 0)) {
+//			if(cord.Masses.get(0).Yv > 0) {
+//				System.err.println(cord.k);
+//				this.stop();
+//			}
+//			else 		{
+//				i++;
+////				System.out.println(cord.Masses.get(0).Yv);
+//				cord = new Bungee(numSprings, length/numSprings, k + i * 10, mass/numSprings, massPerson, timeStep, xyFrame, x, y);
+//				System.out.println(k + i * 10);
+//			}
+//		}
+//		else if(cord.Masses.get(0).Yv > 0) {
+//			System.err.println(cord.k);
+//			this.stop();
+//		}
 	}
 	public void reset() {
 		i=0;
