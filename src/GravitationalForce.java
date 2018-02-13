@@ -1,4 +1,3 @@
-
 public class GravitationalForce extends Force {
 	final static public double gravitationalAcceleration = 9.8;
 	public GravitationalForce(double mass) {

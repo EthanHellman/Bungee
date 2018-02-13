@@ -1,7 +1,4 @@
-//Test the git
-
-public class Spring extends Force{
-	
+public class Spring extends Force{	
 	Particle[] particles= new Particle[2];
 	double length;
 	double K;
@@ -25,5 +22,4 @@ public class Spring extends Force{
 			return false;
 		
 	}
-
 }

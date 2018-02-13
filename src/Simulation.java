@@ -1,79 +1,84 @@
 import org.opensourcephysics.controls.*;  //needed for the simulation
 import org.opensourcephysics.frames.*;   //needed to use a DisplayFrame
 
-/**
- * This class contains the basics of any simulation with some simple graphics.
- */
 public class Simulation extends AbstractSimulation {
 	public Simulation() {
 
-		
 	}
+	int i = 0;
 
 
-
+	double time;
 	double xInit;
 	double yInit;
-
-
-	boolean done = false;
 	double timeStep;
-
-
 	PlotFrame xyFrame = new PlotFrame("x", "y", "Trajectory");
-	Bungee chord;
+//	PlotFrame aFrame = new PlotFrame("x", "y", "Trajectory");
 
-	/**
-	 *
-	 *Iterates the particle one step and stops if it reaches the target
-	 *
-	 */
+	Bungee cord;
+	int j = 0;
 	protected void doStep() {
-		chord.update();
-	}
 
-	/**
-	 *  
-	 *  Creates a list of particles with different betas
-	 *  
-	 */
+		cord.update();
+//		aFrame.append(0, time+timeStep*j++, cord.Masses.get(0).Ya );
+		if((cord.Masses.get(0).getY() <= 0)) {
+			if(cord.Masses.get(0).Yv > 0) {
+				System.err.println(cord.k);
+				this.stop();
+			}
+			else 		{
+				i++;
+				System.out.println(cord.Masses.get(0).Yv);
+				cord = new Bungee(numSprings, length/numSprings, k + i * 10, mass/numSprings, massPerson, timeStep, xyFrame, x, y);
+				System.out.println(k + i * 10);
+			}
+		}
+		else if(cord.Masses.get(0).Yv > 0) {
+			System.err.println(cord.k);
+			this.stop();
+		}
+	}
 	public void reset() {
+		i=0;
+		xyFrame.clearDrawables();;
 		control.setValue("x", 0);
 		control.setValue("y", 100);
-		control.setValue("Time Step", .1);
-		control.setValue("Number of Springs", 4);
-		control.setValue("Length of each spring", .5);
+		control.setValue("Time Step", .01);
+		control.setValue("Number of Springs", 80);
 		control.setValue("Mass of Person", 50);
-		control.setValue("K", 50);
-		control.setValue("Mass of each spring", 1);
-	
+		control.setValue("K", 2600);
+		control.setValue("Mass of bungee cord", 50);
+		control.setValue("Length of bungee", 40);
+
 		xyFrame.clearData();
 		this.setDelayTime(1);
-
-
 	}
 
-	/**
-	 * 
-	 * Creates a particle defined by inputs from the simulation interface
-	 * 
-	 */
+	double numSprings;
+	double length;
+	double k;
+	double mass;
+	double massPerson;
+	double x;
+	double y;
 	public void initialize() {
-xyFrame.setPreferredMinMaxY(-50, 150);
+		numSprings = control.getDouble("Number of Springs");
+		length = control.getDouble("Length of bungee");
+		k  = control.getDouble("K");
+		mass = control.getDouble("Mass of bungee cord");
+		massPerson = control.getDouble("Mass of Person");
+		timeStep = control.getDouble("Time Step");
+		x =  control.getDouble("x");
+		y = control.getDouble("y");
+
+		xyFrame.setPreferredMinMaxY(-50, 150);
 		xyFrame.clearData();
-		 chord = new Bungee(control.getDouble("Number of Springs"), control.getDouble("Length of each spring"), control.getDouble("K"), control.getDouble("Mass of each spring"), control.getDouble("Mass of Person"), control.getDouble("Time Step"), xyFrame, control.getDouble("x"), control.getDouble("y"));
-		
+		cord = new Bungee(numSprings, length/numSprings, k, mass/numSprings, massPerson, timeStep, xyFrame, x, y);
 	}
-
-
-
-
-
 
 	public static void main(String[] args) {
 
 		SimulationControl.createApp(new Simulation());
 
 	}
-
 }
