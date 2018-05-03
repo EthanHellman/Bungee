@@ -16,4 +16,4 @@ public class Coordinate extends Circle{
 		return (Math.sqrt(Math.pow(this.xDistanceBetween(c), 2) + Math.pow(this.yDistanceBetween(c), 2)));
 	}
 }
-////////
+//////////

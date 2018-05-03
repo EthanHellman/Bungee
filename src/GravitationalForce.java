@@ -5,7 +5,7 @@ public class GravitationalForce extends Force {
 	public double getXForce(Particle p) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
+	}//
 
 	@Override
 	public double getYForce(Particle p) {

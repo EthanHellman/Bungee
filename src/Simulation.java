@@ -1,5 +1,6 @@
 import org.opensourcephysics.controls.*;  //needed for the simulation
 import org.opensourcephysics.frames.*;   //needed to use a DisplayFrame
+//
 /**
  * 
  * @author Stephen Eisner & Ethan Hellman

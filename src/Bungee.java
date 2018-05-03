@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import org.opensourcephysics.frames.PlotFrame;
-
+//
 //This is our bungee class which implements classes: Spring, Particle, and Force
 public class Bungee {
 	//another rounding function for the bungee class:

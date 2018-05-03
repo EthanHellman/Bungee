@@ -12,7 +12,7 @@
 //		if(Math.abs(Math.round(num) - num) < .0000001) num = Math.round(num);//rounds the number if it the difference between it and it rounded is very small
 //		return num;
 //	}
-//	
+//	//
 //	//initializing the characteristics of a particle
 //	double Xa;
 //	double Ya;
