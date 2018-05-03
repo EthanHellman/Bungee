@@ -25,19 +25,32 @@ public class Spring extends Force {
 		//the Particles which are connected to this spring will be able to access these new
 		//values because this exact spring is stored in their arrayList of forces acting on said
 		//particle so there is no need to update
-		this.Newtons = this.K*(displacement- this.length);
+		this.setNewtons(this.K*(displacement- this.length));
 		//finds the angle between the particles
 		//again no need to update the this information direction to the particles
-		this.radians = this.particles[0].angleBetween(this.particles[1]); 
 	}
-	@Override
-	//will check to see if it is the top particle
-	public boolean top(Particle p) {
-		//if the particles is the second in the list, then the spring knows that it is considered the top particle
-		if(p.equals(this.particles[1])) return true;
-		//else it will return false:
-		return false;
 
+
+	@Override
+	public double getXForce(Particle p) {
+		if(p.equals(this.particles[1])) {
+			return (this.getNewtons()*(p.xDistanceBetween(this.particles[0])/p.distanceBetween(this.particles[0])));
+		}
+		else if(p.equals(this.particles[0])){
+			return (this.getNewtons()*(p.xDistanceBetween(this.particles[1])/p.distanceBetween(this.particles[1])));
+		}
+		else return 0;
+	}
+
+	@Override
+	public double getYForce(Particle p) {
+		if(p.equals(this.particles[1])) {
+			return (this.getNewtons()*(p.yDistanceBetween(this.particles[0])/p.distanceBetween(this.particles[0])));
+		}
+		else if(p.equals(this.particles[0])){
+			return (this.getNewtons()*(p.yDistanceBetween(this.particles[1])/p.distanceBetween(this.particles[1])));
+		}
+		else return 0;
 	}
 
 }
