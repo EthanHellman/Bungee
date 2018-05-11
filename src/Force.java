@@ -17,7 +17,13 @@ public abstract class Force {
 	public double getNewtons() {
 		return Newtons;
 	}
+	public double getRadians() {
+		return radians;
+	}
 	public void setNewtons(double newtons) {
 		Newtons = newtons;
+	}
+	public void setRadians(double Radians) {
+		radians = Radians;
 	}
 }
